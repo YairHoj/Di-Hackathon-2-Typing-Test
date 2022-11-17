@@ -2,6 +2,22 @@ const express = require("express");
 const ejs = require("ejs");
 
 const app = express();
+const db = require("knex")({
+  client: "pg",
+  connection: {
+    host: "127.0.0.1",
+    user: "jonah",
+    password: "1234",
+    database: "hackathon2",
+    port: 5432,
+  },
+});
+
+app.get("/", (req, res) => {
+  db.select("id", "text_length", "paragraph")
+    .from("passages")
+    .then((passages) => res.send(passages));
+});
 
 app.set("view engine", "ejs");
 

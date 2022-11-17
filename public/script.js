@@ -16,6 +16,7 @@ let charCount = 0;
 let continues = true;
 // Stops the timer for being reset
 
+
 // Splits the text into an array
 function readText() {
   charCount++;
@@ -76,6 +77,7 @@ function scoreCalc() {
   let finaltime = time / 100;
   let mins = finaltime / 60;
   let wpm = wpmlength / mins;
+
   let accuracy;
   passage.forEach((value, index) => {
     if (value == textArray[index]) {
@@ -88,4 +90,5 @@ function scoreCalc() {
     `Your typed with an average of ${wpm.toFixed(0)} words per minute!`
   );
   console.log(`Your time was ${finaltime.toFixed(2)}s!`);
+
 }

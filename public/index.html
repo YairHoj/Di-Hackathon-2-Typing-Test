@@ -4,15 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
-    <input type="text" id="textinput" oninput="readText()" />
-    <p>
-      In HTML, div and span tags are elements used to define parts of a
-      document, so that they are identifiable when a unique classification is
-      necessary.
-    </p>
-    <script src="./script.js"></script>
+    <h1 id="title">Typemaster</h1>
+    <h4>The best game to train your typing accuracy & speed</h4>
+    <h2 id="header">Select your paragraph size</h2>
+    <div id="paragraphsize">
+      <button id="btn1">Small</button>
+      <button id="btn2">Medium</button>
+      <button id="btn3">Large</button>
+    </div>
+    <div id="startbuttondiv">
+      <button id="start" onclick="location.href='./game.html'">Start</button>
+    </div>
+    <script src="./buttondom.js"></script>
   </body>
 </html>
