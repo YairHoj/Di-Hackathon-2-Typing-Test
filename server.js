@@ -14,7 +14,7 @@ const db = require("knex")({
 });
 
 app.get("/", (req, res) => {
-  db.select("text_length", "paragraph")
+  db.select("id", "text_length", "paragraph")
     .from("passages")
     .then((passages) => res.send(passages));
 });

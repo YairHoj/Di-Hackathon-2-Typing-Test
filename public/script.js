@@ -4,6 +4,8 @@ let passage = text.split("");
 let textInputDOM = document.getElementById("textinput");
 let newTextInput = [];
 let textArray;
+let h3 = document.getElementById("h3");
+h3.textContent = text;
 
 function readText() {
   let textInput = textInputDOM.value;
