@@ -16,6 +16,7 @@ button1.addEventListener("click", () => {
   button2.removeAttribute("class");
   button3.removeAttribute("class");
   localStorage.setItem("activebutton", "button1");
+  localStorage.setItem("psize", "Small");
 });
 
 button2.addEventListener("click", () => {
@@ -23,6 +24,7 @@ button2.addEventListener("click", () => {
   button2.setAttribute("class", "active");
   button3.removeAttribute("class");
   localStorage.setItem("activebutton", "button2");
+  localStorage.setItem("psize", "Medium");
 });
 
 button3.addEventListener("click", () => {
@@ -30,4 +32,5 @@ button3.addEventListener("click", () => {
   button2.removeAttribute("class");
   button3.setAttribute("class", "active");
   localStorage.setItem("activebutton", "button3");
+  localStorage.setItem("psize", "Large");
 });

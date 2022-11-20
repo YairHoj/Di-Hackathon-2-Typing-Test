@@ -1,0 +1,47 @@
+body {
+  background-color: #4f54c1;
+  font-family: "Roboto Mono", monospace;
+}
+
+#h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color: white;
+  font-family: "Roboto Mono", monospace;
+}
+
+#inputdiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 26px;
+}
+
+#textinput {
+  border-radius: 10px;
+  width: 1250px;
+  height: 400px;
+  font-size: 30px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  position: relative;
+  margin-top: 23px;
+  outline: none;
+  resize: none;
+  opacity: 0;
+  color: rgb(92, 255, 47);
+}
+
+#paragraph {
+  text-align: left;
+  color: rgb(144, 144, 144);
+  font-weight: 600;
+  font-size: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+  position: absolute;
+}

@@ -4,11 +4,35 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./game.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
+    <h1 id="h1"></h1>
+    <div id="paragraphdiv">
+      <h2 id="paragraph">
+        Cascading Style Sheets is a style sheet language used for describing the
+        presentation of a document written in a markup language such as HTML or
+        XML. CSS is a cornerstone technology of the World Wide Web, alongside
+        HTML and JavaScript.
+      </h2>
+    </div>
+
     <div id="inputdiv">
-      <input type="text" id="textinput" oninput="readText()" />
+      <textarea
+        type="text"
+        id="textinput"
+        rows="4"
+        cols="40"
+        autofocus="autofocus"
+        oninput="readText()"
+      ></textarea>
     </div>
     <h3 id="h3"></h3>
     <script src="./script.js"></script>
