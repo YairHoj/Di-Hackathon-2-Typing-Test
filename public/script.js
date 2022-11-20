@@ -21,26 +21,19 @@ let updateArray = true;
 // Splits the text into an array
 function readText() {
   charCount++;
-  console.log(charCount);
   if (continues == true) {
     live = true;
     let textInput = textInputDOM.value;
     textArray = textInput.split("");
-    // console.log(textArray);
-    // console.log(textInput.length);
     updateArray = true;
     // Compares each character to see if it is right or wrong, and adds the value to an array.
     if (updateArray == true) {
       if (textInput[textInput.length - 1] == passage[textInput.length - 1]) {
-        // console.log("correct");
         correctIncorrectArr.push(true);
-        console.log(correctIncorrectArr);
       } else if (
         textInput[textInput.length - 1] != passage[textInput.length - 1]
       ) {
-        // console.log("incorrect");
         correctIncorrectArr.push(false);
-        console.log(correctIncorrectArr);
       } else {
         console.log("error");
       }
@@ -53,7 +46,6 @@ addEventListener("keydown", function (e) {
   let textInput = textInputDOM.value;
   if (e.code == "Backspace" && charCount > 0) {
     charCount = charCount - 2;
-    console.log(charCount);
     correctIncorrectArr.pop();
     correctIncorrectArr.pop();
   }
