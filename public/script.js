@@ -1,8 +1,9 @@
-let text =
-  "In HTML, div and span tags are elements used to define parts of a document, so that they are identifiable when a unique classification is necessary.";
+let passageText = document.getElementById("passage");
+let text = passageText.innerText;
 let passage = text.split("");
 let wordssplit = text.split(" ");
 let wpmlength = wordssplit.length;
+
 let textInputDOM = document.getElementById("textinput");
 let newTextInput = [];
 let correctIncorrectArr = [];
@@ -15,7 +16,6 @@ let charCount = 0;
 // Stops the timer after text is finished
 let continues = true;
 // Stops the timer for being reset
-
 
 // Splits the text into an array
 function readText() {
@@ -52,12 +52,15 @@ addEventListener("keydown", function (e) {
     console.log("hi");
   }
 });
-
+let timeText = document.getElementById("time-text");
 // Timer for user, stops when length of passage and input are equal
 function timer() {
   if (i == 0) {
     setInterval(function () {
       time = time + 1;
+      if (live == true) {
+        timeText.textContent = "Time: " + time / 100;
+      }
     }, 10);
     i++;
     // console.log(time / 100 + "s");
@@ -70,6 +73,8 @@ function timer() {
     return;
   }
 }
+let accuracyText = document.getElementById("accuracy-text");
+let wpmText = document.getElementById("WPM-text");
 
 // Calculates the accuracy, WPM, and time
 function scoreCalc() {
@@ -85,10 +90,13 @@ function scoreCalc() {
     }
   });
   accuracy = (score / passage.length) * 100;
-  console.log(`Your accuracy was ${accuracy.toFixed(2)}%!`);
-  console.log(
-    `Your typed with an average of ${wpm.toFixed(0)} words per minute!`
-  );
-  console.log(`Your time was ${finaltime.toFixed(2)}s!`);
 
+  accuracyText.textContent = `Your accuracy was ${accuracy.toFixed(2)}%!`;
+
+  wpmText.textContent = `Your typed with an average of ${wpm.toFixed(
+    0
+  )} words per minute!`;
+  stopTimer = true;
+
+  timeText.textContent = `Your time was ${finaltime.toFixed(2)}s!`;
 }
