@@ -6,7 +6,7 @@ let wpmlength = wordssplit.length;
 
 let textInputDOM = document.getElementById("textinput");
 let newTextInput = [];
-let correctIncorrectArr = [];
+let correctIncorrectArr = [true];
 let textArray;
 let live = false;
 let time = 0;
@@ -17,41 +17,50 @@ let charCount = 0;
 let continues = true;
 // Stops the timer for being reset
 
+let updateArray = true;
 // Splits the text into an array
 function readText() {
   charCount++;
+  console.log(charCount);
   if (continues == true) {
     live = true;
     let textInput = textInputDOM.value;
     textArray = textInput.split("");
     // console.log(textArray);
-    console.log(textInput.length);
-
+    // console.log(textInput.length);
+    updateArray = true;
     // Compares each character to see if it is right or wrong, and adds the value to an array.
-    if (textInput[textInput.length - 1] == passage[textInput.length - 1]) {
-      console.log("correct");
-      correctIncorrectArr.push(true);
-    } else if (
-      textInput[textInput.length - 1] != passage[textInput.length - 1]
-    ) {
-      console.log("incorrect");
-      correctIncorrectArr.push(false);
-    } else {
-      console.log("error");
+    if (updateArray == true) {
+      if (textInput[textInput.length - 1] == passage[textInput.length - 1]) {
+        // console.log("correct");
+        correctIncorrectArr.push(true);
+        console.log(correctIncorrectArr);
+      } else if (
+        textInput[textInput.length - 1] != passage[textInput.length - 1]
+      ) {
+        // console.log("incorrect");
+        correctIncorrectArr.push(false);
+        console.log(correctIncorrectArr);
+      } else {
+        console.log("error");
+      }
     }
     timer();
   }
 }
 
-// Deletes the last value in the true false array
 addEventListener("keydown", function (e) {
-  charCount--;
+  let textInput = textInputDOM.value;
   if (e.code == "Backspace" && charCount > 0) {
+    charCount = charCount - 2;
+    console.log(charCount);
     correctIncorrectArr.pop();
-    console.log(correctIncorrectArr);
-    console.log("hi");
+    correctIncorrectArr.pop();
   }
 });
+
+// Deletes the last value in the true false array
+
 let timeText = document.getElementById("time-text");
 // Timer for user, stops when length of passage and input are equal
 function timer() {
@@ -63,9 +72,7 @@ function timer() {
       }
     }, 10);
     i++;
-    // console.log(time / 100 + "s");
   }
-  //   console.log(time / 100 + "s");
   if (text.length <= textArray.length) {
     live = false;
     continues = false;
