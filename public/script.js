@@ -54,6 +54,7 @@ addEventListener("keydown", function (e) {
   }
 });
 
+// NEEDS FIXING
 let newPassage = document.getElementById("new-passage");
 function deleteText() {
   let position = correctIncorrectArr.length;
