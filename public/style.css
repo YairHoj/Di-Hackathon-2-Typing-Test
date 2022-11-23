@@ -89,3 +89,13 @@ h4 {
   height: 200px;
   border-radius: 20px;
 } */
+
+.correct-text {
+  color: green;
+  background-color: rgba(0, 255, 0, 0.5);
+}
+
+.incorrect-text {
+  color: red;
+  background-color: rgba(255, 0, 0, 0.5);
+}

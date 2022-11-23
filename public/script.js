@@ -1,22 +1,24 @@
-let text =
-  "In HTML, div and span tags are elements used to define parts of a document, so that they are identifiable when a unique classification is necessary.";
+let passageText = document.getElementById("passage");
+let text = passageText.innerText;
+let myString = text.toString();
 let passage = text.split("");
 let wordssplit = text.split(" ");
 let wpmlength = wordssplit.length;
+
 let textInputDOM = document.getElementById("textinput");
 let newTextInput = [];
-let correctIncorrectArr = [];
+let correctIncorrectArr = [true];
 let textArray;
 let live = false;
 let time = 0;
 let j = 0;
-let i = 0;
+let i = -1;
 let charCount = 0;
 // Stops the timer after text is finished
 let continues = true;
 // Stops the timer for being reset
 
-
+let updateArray = true;
 // Splits the text into an array
 function readText() {
   charCount++;
@@ -24,50 +26,102 @@ function readText() {
     live = true;
     let textInput = textInputDOM.value;
     textArray = textInput.split("");
-    // console.log(textArray);
-    console.log(textInput.length);
-
+    updateArray = true;
     // Compares each character to see if it is right or wrong, and adds the value to an array.
-    if (textInput[textInput.length - 1] == passage[textInput.length - 1]) {
-      console.log("correct");
-      correctIncorrectArr.push(true);
-    } else if (
-      textInput[textInput.length - 1] != passage[textInput.length - 1]
-    ) {
-      console.log("incorrect");
-      correctIncorrectArr.push(false);
-    } else {
-      console.log("error");
+    if (updateArray == true) {
+      if (textInput[textInput.length - 1] == passage[textInput.length - 1]) {
+        correctIncorrectArr.push(true);
+      } else if (
+        textInput[textInput.length - 1] != passage[textInput.length - 1]
+      ) {
+        correctIncorrectArr.push(false);
+      } else {
+        console.log("error");
+      }
     }
     timer();
+    greenRed();
   }
 }
 
-// Deletes the last value in the true false array
 addEventListener("keydown", function (e) {
-  charCount--;
-  if (e.code == "Backspace" && charCount > 0) {
-    correctIncorrectArr.pop();
-    console.log(correctIncorrectArr);
-    console.log("hi");
+  if (e.code == "Backspace") {
+    e.preventDefault();
   }
 });
 
+window.onload = () => {
+  textInputDOM.onpaste = (e) => e.preventDefault();
+};
+// NEEDS FIXING
+let newPassage = document.getElementById("new-passage");
+
+let timeText = document.getElementById("time-text");
 // Timer for user, stops when length of passage and input are equal
 function timer() {
   if (i == 0) {
     setInterval(function () {
       time = time + 1;
+      if (live == true) {
+        timeText.textContent = "Time: " + time / 100;
+      }
     }, 10);
     i++;
-    // console.log(time / 100 + "s");
   }
-  //   console.log(time / 100 + "s");
   if (text.length <= textArray.length) {
     live = false;
     continues = false;
     scoreCalc();
     return;
+  }
+}
+let accuracyText = document.getElementById("accuracy-text");
+let wpmText = document.getElementById("WPM-text");
+
+// Replaces text for its color corresponding
+const staticText = passageText;
+function greenRed() {
+  console.log(correctIncorrectArr[i]);
+  if (correctIncorrectArr[j + 1] == true) {
+    appendNewPassage(true);
+    j++;
+  } else if (correctIncorrectArr[j + 1] == false) {
+    // Change color of text to red
+    appendNewPassage(false);
+    j++;
+  } else {
+    alert("error");
+  }
+}
+// });
+function appendNewPassage(correct) {
+  let position = correctIncorrectArr.length - 2;
+  let charNeeded = text.charAt(position);
+  if (correct == true) {
+    if (charNeeded == " ") {
+      newPassage.insertAdjacentHTML(
+        "beforeend",
+        '<span class="correct-text">' + "_" + "</span>"
+      );
+    } else {
+      newPassage.insertAdjacentHTML(
+        "beforeend",
+        '<span class="correct-text">' + charNeeded + "</span>"
+      );
+    }
+  }
+  if (correct == false) {
+    if (charNeeded == " ") {
+      newPassage.insertAdjacentHTML(
+        "beforeend",
+        '<span class="incorrect-text">' + "_" + "</span>"
+      );
+    } else {
+      newPassage.insertAdjacentHTML(
+        "beforeend",
+        '<span class="incorrect-text">' + charNeeded + "</span>"
+      );
+    }
   }
 }
 
@@ -85,10 +139,13 @@ function scoreCalc() {
     }
   });
   accuracy = (score / passage.length) * 100;
-  console.log(`Your accuracy was ${accuracy.toFixed(2)}%!`);
-  console.log(
-    `Your typed with an average of ${wpm.toFixed(0)} words per minute!`
-  );
-  console.log(`Your time was ${finaltime.toFixed(2)}s!`);
 
+  accuracyText.textContent = `Your accuracy was ${accuracy.toFixed(2)}%!`;
+
+  wpmText.textContent = `Your typed with an average of ${wpm.toFixed(
+    0
+  )} words per minute!`;
+  stopTimer = true;
+
+  timeText.textContent = `Your time was ${finaltime.toFixed(2)}s!`;
 }
