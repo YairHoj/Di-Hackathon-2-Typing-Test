@@ -68,7 +68,7 @@ body {
   position: relative;
   outline: none;
   resize: none;
-  /* opacity: 0; */
+  opacity: 0;
   color: rgb(92, 255, 47);
 }
 
@@ -121,4 +121,47 @@ body {
 .h3 {
   color: white;
   text-shadow: 4px 3px 4px rgba(135, 135, 135, 0.3);
+}
+
+.correct-text {
+  color: green;
+  background-color: rgba(0, 255, 0, 0.5);
+}
+
+.incorrect-text {
+  color: red;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+#newpassagediv {
+  display: flex;
+  align-items: center;
+  display: flex;
+  margin-top: 64px;
+  z-index: 50;
+  position: relative;
+  font-size: 20px;
+  text-align: left;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 20px;
+  margin-right: 100px;
+  position: absolute;
+  width: 1000px;
+  background-color: black;
+}
+
+#new-passage {
+  display: flex;
+  margin-top: 81px;
+  margin-left: 121px;
+  z-index: 50;
+  position: relative;
+  font-size: 20px;
+  text-align: left;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 20px;
+  margin-right: 100px;
+  position: absolute;
 }

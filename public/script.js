@@ -10,14 +10,11 @@ function randomP() {
   return randomP;
 }
 
-console.log("Script.js loaded");
+let randomParagraph = randomP();
 
-let text = randomP();
-console.log(text);
+document.getElementById("paragraph").textContent = randomParagraph;
 
-document.getElementById("paragraph").textContent = text;
-
-let passageText = document.getElementById("passage");
+let passageText = document.getElementById("paragraph");
 let text = passageText.innerText;
 let myString = text.toString();
 let passage = text.split("");
