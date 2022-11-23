@@ -10,6 +10,8 @@ function randomP() {
   return randomP;
 }
 
+console.log("Script.js loaded");
+
 let text = randomP();
 console.log(text);
 
