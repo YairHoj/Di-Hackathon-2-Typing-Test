@@ -11,6 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="game.css" />
     <title>Document</title>
   </head>
   <body>
@@ -18,9 +20,9 @@
       <h1 id="h1"></h1>
     </div>
     <div id="stats">
-      <h3 id="h3-1" class="h3">Accuracy: _____</h3>
-      <h3 id="h3-2" class="h3">WPM: ___</h3>
-      <h3 id="h3-3" class="h3">Time: _____</h3>
+      <h3 id="time-text" class="h3">Accuracy: _____</h3>
+      <h3 id="accuracy-text" class="h3">WPM: ___</h3>
+      <h3 id="WPM-text" class="h3">Time: _____</h3>
     </div>
 
     <div id="paragraphdiv">
@@ -41,6 +43,11 @@
     <h3 id="h3"></h3>
     <div id="startbuttondiv">
       <button id="start" onclick="location.href='./index.html'">Home</button>
+    </div>
+      <h3 id="passage>
+      </h3>
+      <h3 id="new-passage"></h3>
+      <input type="text" id="textinput" oninput="readText()" />
     </div>
     <script src="./script.js"></script>
     <script src="./texts.js"></script>
