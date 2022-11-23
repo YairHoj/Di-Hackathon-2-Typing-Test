@@ -1,5 +1,7 @@
 const express = require("express");
 const ejs = require("ejs");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const app = express();
 const db = require("knex")({
@@ -13,22 +15,22 @@ const db = require("knex")({
   },
 });
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.get("/", (req, res) => {
-  db.select("id", "text_length", "paragraph")
-    .from("passages")
-    .then((passages) => res.send(passages));
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 app.set("view engine", "ejs");
 
-app.listen(4020, () => {
-  console.log("listening on port 4020");
+app.listen(4061, () => {
+  console.log("listening on port 4061");
 });
 
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
-app.get("/", (req, res) => {
-  res.json("hello");
+app.get("/game", (req, res) => {
+  res.sendFile(__dirname + "/public/game.html");
 });
 
 app.get("/about", (req, res) => {

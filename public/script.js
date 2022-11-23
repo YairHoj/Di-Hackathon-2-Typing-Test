@@ -1,3 +1,22 @@
+let h1 = document.getElementById("h1");
+let psize = localStorage.getItem("psize");
+h1.textContent = psize + " Paragraph";
+let textJSON = localStorage.getItem("texts");
+let textObj = JSON.parse(textJSON);
+
+function randomP() {
+  let random = Math.floor(Math.random() * 5);
+  let randomP = textObj[psize][random].text;
+  return randomP;
+}
+
+console.log("Script.js loaded");
+
+let text = randomP();
+console.log(text);
+
+document.getElementById("paragraph").textContent = text;
+
 let passageText = document.getElementById("passage");
 let text = passageText.innerText;
 let myString = text.toString();
@@ -19,6 +38,7 @@ let continues = true;
 // Stops the timer for being reset
 
 let updateArray = true;
+
 // Splits the text into an array
 function readText() {
   charCount++;
@@ -132,6 +152,10 @@ function scoreCalc() {
   let mins = finaltime / 60;
   let wpm = wpmlength / mins;
 
+  let accuracy2 = document.getElementById("h3-1");
+  let wpm2 = document.getElementById("h3-2");
+  let typingtime = document.getElementById("h3-3");
+
   let accuracy;
   passage.forEach((value, index) => {
     if (value == textArray[index]) {
@@ -139,6 +163,15 @@ function scoreCalc() {
     }
   });
   accuracy = (score / passage.length) * 100;
+
+  console.log(`Your accuracy was ${accuracy.toFixed(2)}%!`);
+  accuracy2.textContent = `Accuracy: ${accuracy.toFixed(2)}%`;
+  console.log(
+    `Your typed with an average of ${wpm.toFixed(0)} words per minute!`
+  );
+  wpm2.textContent = `WPM: ${wpm.toFixed(0)}`;
+  console.log(`Your time was ${finaltime.toFixed(2)}s!`);
+  typingtime.textContent = `Time: ${finaltime.toFixed(2)}s`;
 
   accuracyText.textContent = `Your accuracy was ${accuracy.toFixed(2)}%!`;
 

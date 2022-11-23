@@ -3,26 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./game.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="game.css" />
     <title>Document</title>
   </head>
   <body>
+    <div id="h1div">
+      <h1 id="h1"></h1>
+    </div>
+    <div id="stats">
+      <h3 id="time-text" class="h3">Accuracy: _____</h3>
+      <h3 id="accuracy-text" class="h3">WPM: ___</h3>
+      <h3 id="WPM-text" class="h3">Time: _____</h3>
+    </div>
+
+    <div id="paragraphdiv">
+      <h2 id="paragraph"></h2>
+    </div>
+
     <div id="inputdiv">
-      <h3 id="passage">
-        The longest paragraphs I work in are eleven lines. I don’t use them a
-        lot. About eighteen months back, I wrote a long narrative piece about my
-        grandmothers and the ways they used food. At just over seventeen hundred
-        words, it was the first time I’d written in paragraphs that long, and
-        marked the start of a shift toward length and biography in what I
-        published.
+      <textarea
+        type="text"
+        id="textinput"
+        rows="4"
+        cols="30"
+        autofocus="autofocus"
+        oninput="readText()"
+        data-enable-grammarly="false"
+      ></textarea>
+    </div>
+    <h3 id="h3"></h3>
+    <div id="startbuttondiv">
+      <button id="start" onclick="location.href='./index.html'">Home</button>
+    </div>
+      <h3 id="passage>
       </h3>
       <h3 id="new-passage"></h3>
       <input type="text" id="textinput" oninput="readText()" />
-      <p id="time-text">Time:</p>
-      <p id="accuracy-text">Accuracy:</p>
-      <p id="WPM-text">WPM:</p>
     </div>
     <script src="./script.js"></script>
+    <script src="./texts.js"></script>
   </body>
 </html>

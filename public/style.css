@@ -1,6 +1,9 @@
 body {
-  background-color: #4f54c1;
+  background: url("./meshbg.png") no-repeat center center fixed;
+  background-size: cover;
   font-family: "Roboto Mono", monospace;
+  overflow: hidden;
+  margin: 0;
   color: white;
   overflow: hidden;
 }
@@ -19,7 +22,7 @@ h4 {
 
 #header {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 #paragraphsize {
@@ -31,6 +34,10 @@ h4 {
 }
 
 #btn1 {
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
   border-radius: 40px;
   width: 140px;
   height: 60px;
@@ -38,6 +45,10 @@ h4 {
   font-size: 15px;
 }
 #btn2 {
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
   border-radius: 40px;
   width: 140px;
   height: 60px;
@@ -45,6 +56,10 @@ h4 {
   font-size: 15px;
 }
 #btn3 {
+  background: rgba(255, 255, 255, 0);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
   border-radius: 40px;
   width: 140px;
   height: 60px;
@@ -53,7 +68,8 @@ h4 {
 }
 
 .active {
-  background-color: #aeaeae;
+  color: white;
+  border-color: white;
 }
 
 #startbuttondiv {
@@ -64,38 +80,13 @@ h4 {
 }
 
 #start {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
   border-radius: 40px;
   width: 280px;
   height: 80px;
   font-family: "Roboto Mono", monospace;
   font-size: 20px;
-  background-color: white;
-}
-/* 
-#btn:hover {
-  background-color: #ffffff;
-}
-
-#btn:focus {
-  background-color: #bdbdbd;
-} */
-
-/* #inputdiv {
-  margin-top: 50px;
-  text-align: center;
-}
-#textinput {
-  width: 500px;
-  height: 200px;
-  border-radius: 20px;
-} */
-
-.correct-text {
-  color: green;
-  background-color: rgba(0, 255, 0, 0.5);
-}
-
-.incorrect-text {
-  color: red;
-  background-color: rgba(255, 0, 0, 0.5);
 }
