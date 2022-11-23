@@ -45,34 +45,16 @@ function readText() {
 }
 
 addEventListener("keydown", function (e) {
-  let textInput = textInputDOM.value;
-  if (e.code == "Backspace" && charCount > 0) {
-    charCount = charCount - 2;
-    correctIncorrectArr.pop();
-    correctIncorrectArr.pop();
-    deleteText();
+  if (e.code == "Backspace") {
+    e.preventDefault();
   }
 });
 
+window.onload = () => {
+  textInputDOM.onpaste = (e) => e.preventDefault();
+};
 // NEEDS FIXING
 let newPassage = document.getElementById("new-passage");
-function deleteText() {
-  let position = correctIncorrectArr.length;
-  let charNeeded = text.charAt(position + 1);
-  console.log(position);
-  console.log(charCount);
-  if (charNeeded == " ") {
-    charNeeded = "_";
-  }
-  console.log(newPassage.innerText);
-  newPassage.innerHTML = newPassage.innerHTML.replace(
-    '<span class="incorrect-text">' + charNeeded + "</span>",
-    ""
-  );
-  console.log(newPassage);
-}
-
-// Deletes the last value in the true false array
 
 let timeText = document.getElementById("time-text");
 // Timer for user, stops when length of passage and input are equal
@@ -99,14 +81,16 @@ let wpmText = document.getElementById("WPM-text");
 // Replaces text for its color corresponding
 const staticText = passageText;
 function greenRed() {
-  if (correctIncorrectArr[i + 1] == true) {
+  console.log(correctIncorrectArr[i]);
+  if (correctIncorrectArr[j + 1] == true) {
     appendNewPassage(true);
-    i++;
-  } else if (correctIncorrectArr[i + 1] == false) {
+    j++;
+  } else if (correctIncorrectArr[j + 1] == false) {
     // Change color of text to red
     appendNewPassage(false);
-    i++;
+    j++;
   } else {
+    alert("error");
   }
 }
 // });
@@ -114,10 +98,17 @@ function appendNewPassage(correct) {
   let position = correctIncorrectArr.length - 2;
   let charNeeded = text.charAt(position);
   if (correct == true) {
-    newPassage.insertAdjacentHTML(
-      "beforeend",
-      '<span class="correct-text">' + charNeeded + "</span>"
-    );
+    if (charNeeded == " ") {
+      newPassage.insertAdjacentHTML(
+        "beforeend",
+        '<span class="correct-text">' + "_" + "</span>"
+      );
+    } else {
+      newPassage.insertAdjacentHTML(
+        "beforeend",
+        '<span class="correct-text">' + charNeeded + "</span>"
+      );
+    }
   }
   if (correct == false) {
     if (charNeeded == " ") {
