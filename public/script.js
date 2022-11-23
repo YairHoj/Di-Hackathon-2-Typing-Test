@@ -1,5 +1,20 @@
-let text =
-  "In HTML, div and span tags are elements used to define parts of a document, so that they are identifiable when a unique classification is necessary.";
+let h1 = document.getElementById("h1");
+let psize = localStorage.getItem("psize");
+h1.textContent = psize + " Paragraph";
+let textJSON = localStorage.getItem("texts");
+let textObj = JSON.parse(textJSON);
+
+function randomP() {
+  let random = Math.floor(Math.random() * 5);
+  let randomP = textObj[psize][random].text;
+  return randomP;
+}
+
+let text = randomP();
+console.log(text);
+
+document.getElementById("paragraph").textContent = text;
+
 let passage = text.split("");
 let wordssplit = text.split(" ");
 let wpmlength = wordssplit.length;
@@ -15,7 +30,6 @@ let charCount = 0;
 // Stops the timer after text is finished
 let continues = true;
 // Stops the timer for being reset
-
 
 // Splits the text into an array
 function readText() {
@@ -78,6 +92,10 @@ function scoreCalc() {
   let mins = finaltime / 60;
   let wpm = wpmlength / mins;
 
+  let accuracy2 = document.getElementById("h3-1");
+  let wpm2 = document.getElementById("h3-2");
+  let typingtime = document.getElementById("h3-3");
+
   let accuracy;
   passage.forEach((value, index) => {
     if (value == textArray[index]) {
@@ -86,9 +104,11 @@ function scoreCalc() {
   });
   accuracy = (score / passage.length) * 100;
   console.log(`Your accuracy was ${accuracy.toFixed(2)}%!`);
+  accuracy2.textContent = `Accuracy: ${accuracy.toFixed(2)}%`;
   console.log(
     `Your typed with an average of ${wpm.toFixed(0)} words per minute!`
   );
+  wpm2.textContent = `WPM: ${wpm.toFixed(0)}`;
   console.log(`Your time was ${finaltime.toFixed(2)}s!`);
-
+  typingtime.textContent = `Time: ${finaltime.toFixed(2)}s`;
 }
