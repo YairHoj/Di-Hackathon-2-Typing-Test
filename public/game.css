@@ -32,7 +32,7 @@ body {
 #stats {
   display: flex;
   margin: 0 auto;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   margin-top: 70px;
@@ -46,6 +46,11 @@ body {
   height: 50px;
   word-spacing: -6px;
 }
+
+#accuracy-text {
+  margin-left: 30px;
+}
+
 #h2 {
   display: inline-block;
   font-size: 30px;
@@ -148,7 +153,7 @@ body {
   margin-right: 100px;
   position: absolute;
   width: 1000px;
-  background-color: black;
+  /* background-color: black; */
 }
 
 #new-passage {
