@@ -106,6 +106,9 @@ function timer() {
       time = time + 1;
       if (live == true) {
         timeText.textContent = "Time: " + time / 100 + "s";
+        document.getElementById("startyping").style.display = "none";
+        document.getElementById("paragraph").style.marginTop = "93px";
+        document.getElementById("buttondiv").style.marginTop = "-707px";
       }
     }, 10);
     t++;

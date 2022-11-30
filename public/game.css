@@ -82,7 +82,7 @@ body {
   color: rgb(255, 255, 255);
   font-weight: 600;
   font-size: 20px;
-  margin-top: 60px;
+  margin-top: 20px;
   margin-left: 100px;
   margin-right: 100px;
   position: absolute;
@@ -104,11 +104,21 @@ body {
   margin-top: 50px;
 }
 
-#startbuttondiv {
+#buttondiv {
   display: flex;
+  flex-direction: column;
+  row-gap: 20px;
   justify-content: center;
   align-items: center;
-  margin-top: -720px;
+  margin-top: -780px;
+}
+
+#startyping {
+  margin-top: 30px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #start {
@@ -129,13 +139,13 @@ body {
 }
 
 .correct-text {
-  color: green;
-  background-color: rgba(0, 255, 0, 0.5);
+  color: rgb(45, 255, 45);
+  background-color: rgba(0, 255, 0, 0.31);
 }
 
 .incorrect-text {
   color: red;
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: rgba(255, 0, 0, 0.31);
 }
 
 #newpassagediv {
